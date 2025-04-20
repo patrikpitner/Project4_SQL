@@ -45,7 +45,7 @@ Průměrná mzda v ČR mezi lety 2006–2018 rostla každoročně. Pokles nebyl 
 ### 2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období?
 - **2006**: cca 1432 litrů mléka / 1282 kg chleba
 - **2018**: cca 1639 litrů mléka / 1340 kg chleba
-➡️ Kupní síla obyvatel tedy rostla.
+  = Kupní síla obyvatel tedy rostla.
 
 ### 3. Která kategorie potravin zdražuje nejpomaleji?
 - **Cukr krystal** – průměrný meziroční růst ceny: **–1.92 %** (cena se dlouhodobě snižovala)
@@ -53,8 +53,8 @@ Průměrná mzda v ČR mezi lety 2006–2018 rostla každoročně. Pokles nebyl 
 ### 4. Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (více než 10 %)?
 - **2008**: rozdíl +10.64 %
 - **2011**: rozdíl +11.78 %
-➡️ V těchto letech rostly ceny rychleji než mzdy, což znamená pokles kupní síly.
+  = V těchto letech rostly ceny rychleji než mzdy, což znamená pokles kupní síly.
 
 ### 5. Má výška HDP vliv na změny ve mzdách a cenách potravin?
 - V letech s růstem HDP (např. 2007, 2017) se obvykle zvyšovaly i mzdy
-- Růst cen potravin ale nebyl vždy přímo úměrný změně HDP ➡️ existuje vliv, ale není přímý a lineární
+- Růst cen potravin ale nebyl vždy přímo úměrný změně HDP = existuje vliv
