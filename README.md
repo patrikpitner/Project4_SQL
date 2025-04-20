@@ -58,3 +58,9 @@ Průměrná mzda v ČR mezi lety 2006–2018 rostla každoročně. Pokles nebyl 
 ### 5. Má výška HDP vliv na změny ve mzdách a cenách potravin?
 - V letech s růstem HDP (např. 2007, 2017) se obvykle zvyšovaly i mzdy
 - Růst cen potravin ale nebyl vždy přímo úměrný změně HDP = existuje vliv
+
+## Další soubory v repozitáři
+
+- [`mezivysledky.md`](./mezivysledky.md) – Průvodní listina, obsahuje poznámky k datům, rozsahu a kontrolám
+- `patrik_pitner_project.sql` – SQL skript pro celý projekt
+- `vystupni_data_info.md` – Podrobnosti o dostupnosti a zpracování výstupních dat
