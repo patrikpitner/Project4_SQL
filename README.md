@@ -63,4 +63,4 @@ Průměrná mzda v ČR mezi lety 2006–2018 rostla každoročně. Pokles nebyl 
 
 - [`mezivysledky.md`](./mezivysledky.md) – Průvodní listina, obsahuje poznámky k datům, rozsahu a kontrolám
 - `patrik_pitner_project.sql` – SQL skript pro celý projekt
-- `vystupni_data_info.md` – Podrobnosti o dostupnosti a zpracování výstupních dat
+- [`vystupni_data_info.md`](./vystupni_data_info.md) – Podrobnosti o dostupnosti a zpracování výstupních dat
