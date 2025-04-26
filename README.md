@@ -1,66 +1,59 @@
 # SQL Projekt – Analýza dostupnosti potravin
 
 Tento projekt zkoumá vývoj kupní síly obyvatel České republiky z pohledu průměrné mzdy a cen základních potravin (mléko, chléb) v období 2006–2018.  
-Zároveň porovnává ekonomické ukazatele evropských států (HDP, GINI, populace) ve stejném období.
+Zároveň porovnává ekonomické ukazatele evropských států (HDP, GINI index, populace) ve stejném období.
 
 ## Struktura projektu
 
-- `patrik_pitner_project.sql` – Jeden kompletní SQL skript, který:
-  - vytvoří primární tabulku `t_patrik_pitner_project_SQL_primary_final`
-  - vytvoří sekundární tabulku `t_patrik_pitner_project_SQL_secondary_final`
-  - obsahuje odpovědi na všech 5 výzkumných otázek pomocí samostatných dotazů
+- `create_primary_table.sql` – Skript pro vytvoření primární tabulky `t_patrik_pitner_project_SQL_primary_final`.
+- `create_secondary_table.sql` – Skript pro vytvoření sekundární tabulky `t_patrik_pitner_project_SQL_secondary_final`.
+- `question_1.sql` až `question_5.sql` – Samostatné SQL skripty odpovídající na jednotlivé výzkumné otázky.
+- `mezivysledky.md` – Průvodní listina popisující postup tvorby tabulek a mezivýsledků.
+- `vystupni_data_info.md` – Dokumentace o dostupnosti a kvalitě výstupních dat.
 
 ## Výsledné tabulky
 
 ### t_patrik_pitner_project_SQL_primary_final
-- **Úroveň**: Česká republika
-- **Obsahuje**: Rok, průměrnou mzdu, průměrnou cenu mléka a chleba, počet litrů mléka a kilogramů chleba, které si lze koupit za průměrnou mzdu
-- **Typ tabulky**: Dočasná (TEMP) – lze změnit na trvalou odstraněním klauzule `TEMP`
+- Úroveň: Česká republika
+- Obsahuje: Rok, průměrnou měsíční mzdu, kód kategorie potravin, průměrnou cenu potraviny
+- Typ tabulky: Dočasná (`TEMP`), lze změnit na trvalou odstraněním klauzule TEMP
 
 ### t_patrik_pitner_project_SQL_secondary_final
-- **Úroveň**: Evropské státy
-- **Obsahuje**: Rok, stát, HDP, GINI, populace
-- **Filtr**: Pouze státy v Evropě a roky 2006–2018 s dostupnými daty
+- Úroveň: Evropské státy
+- Obsahuje: Rok, stát, HDP, GINI index, populace
+- Filtr: Pouze státy z Evropy s dostupnými daty pro roky 2006–2018
 
 ## Datové zdroje
 
-- `czechia_payroll`, `czechia_price` – otevřená data ČR
+- `czechia_payroll`, `czechia_price` – otevřená data České republiky
 - `economies`, `countries` – globální socioekonomická data
 
 ## Rozsah dat
 
-- Roky 2006–2018 (na základě dostupnosti kompletních údajů pro mzdy i ceny)
+- Roky 2006–2018 (na základě dostupnosti kompletních údajů o mzdách, cenách a ekonomických ukazatelích)
 
 ## Poznámky
 
-- Data nejsou upravována v původních tabulkách – veškeré transformace probíhají až v nově vytvořených výstupních tabulkách
-- Pro maximální počet dostupných států byla sekundární tabulka vytvořena tak, že GINI index může být `NULL`, pokud chybí
-- Dotazy na výzkumné otázky jsou navrženy tak, aby fungovaly pouze na základě výstupních tabulek
+- Data nejsou upravována přímo v původních tabulkách – veškeré transformace probíhají v nově vytvořených výstupních tabulkách.
+- U sekundární tabulky je ponechán GINI index jako `NULL`, pokud nebyla data dostupná.
+- Dotazy na výzkumné otázky pracují pouze s výstupními tabulkami.
 
 ## Výsledky výzkumných otázek
 
 ### 1. Rostou v průběhu let mzdy ve všech odvětvích?
-Průměrná mzda v ČR mezi lety 2006–2018 rostla každoročně. Pokles nebyl zaznamenán, i když v některých letech byl růst pomalejší.
+- V některých odvětvích došlo v jednotlivých letech k poklesu průměrné mzdy oproti předchozímu roku.
 
 ### 2. Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období?
-- **2006**: cca 1432 litrů mléka / 1282 kg chleba
-- **2018**: cca 1639 litrů mléka / 1340 kg chleba
-  = Kupní síla obyvatel tedy rostla.
+- 2006: cca 1432 litrů mléka / 1282 kg chleba
+- 2018: cca 1639 litrů mléka / 1340 kg chleba
+- Kupní síla obyvatel v ČR v tomto období rostla.
 
 ### 3. Která kategorie potravin zdražuje nejpomaleji?
-- **Cukr krystal** – průměrný meziroční růst ceny: **–1.92 %** (cena se dlouhodobě snižovala)
+- Cukr krystal – měl nejnižší průměrný meziroční růst ceny (dlouhodobě se dokonce cena mírně snižovala).
 
 ### 4. Existuje rok, ve kterém byl meziroční nárůst cen potravin výrazně vyšší než růst mezd (více než 10 %)?
-- **2008**: rozdíl +10.64 %
-- **2011**: rozdíl +11.78 %
-  = V těchto letech rostly ceny rychleji než mzdy, což znamená pokles kupní síly.
+- V roce 2008 a 2011 byl růst cen potravin výrazně vyšší než růst mezd (rozdíl přes 10 procentních bodů).
 
 ### 5. Má výška HDP vliv na změny ve mzdách a cenách potravin?
-- V letech s růstem HDP (např. 2007, 2017) se obvykle zvyšovaly i mzdy
-- Růst cen potravin ale nebyl vždy přímo úměrný změně HDP = existuje vliv
-
-## Další soubory v repozitáři
-
-- [`mezivysledky.md`](./mezivysledky.md) – Průvodní listina, obsahuje poznámky k datům, rozsahu a kontrolám
-- `patrik_pitner_project.sql` – SQL skript pro celý projekt
-- [`vystupni_data_info.md`](./vystupni_data_info.md) – Podrobnosti o dostupnosti a zpracování výstupních dat
+- Vyšší růst HDP (např. v letech 2007 a 2017) byl zpravidla spojen s růstem mezd.
+- Růst cen potravin však nebyl přímo úměrný růstu HDP.
